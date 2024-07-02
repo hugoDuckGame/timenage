@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="timer.js"></script>
+    <script src="ajaxSave.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
                     <button class='btn btn-success' onclick='counter(" . $row['curr_time'] . "," . $row['unicid'] . ")'>Start</button>
                 </div>
                 <div class='stop " . $row['unicid'] . "'>
-                    <button class='btn btn-danger' onclick='stop(" . $row['unicid'] . ")'>Stop</button>
+                    <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
                 </div>
                 <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
             </div>
