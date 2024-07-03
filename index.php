@@ -15,7 +15,7 @@
 <a href="new.php">New PHP</a>
 <a href=""></a>
 
-<?
+<?php
 $counter = 0;
 $unicids = array();
 $page = 0;
