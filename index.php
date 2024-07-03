@@ -2,10 +2,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="ajaxSave.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
+<div id="alertbox"></div>
 
 <a href="login.html">Login HTML</a>
 <a href="login.php">Login PHP</a>
@@ -73,7 +73,7 @@ if ($result->num_rows > 0) {
             <h6>Proj desc</h6>
             <div class='timer'>
                 <div class='start " . $row['unicid'] . "'>
-                    <button class='btn btn-success' onclick='counter(" . $row['curr_time'] . "," . $row['unicid'] . ")'>Start</button>
+                    <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
                 </div>
                 <div class='stop " . $row['unicid'] . "'>
                     <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>

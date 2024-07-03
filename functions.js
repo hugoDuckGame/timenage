@@ -1,4 +1,6 @@
+let time;
 var timer;
+
 function hide(classname) {
     var stopButtons = document.getElementsByClassName(classname);
         for (var i = 0; i < stopButtons.length; i++) {
@@ -25,19 +27,21 @@ function hms(timeInSeconds) {
 }
 
 function seconds(timeInHMS) {
-    var a = timeInHMS.split(':'); // split it at the colons
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);   
-    return seconds;
+    const [hours, minutes, seconds] = timeInHMS.split(':').map(Number);
+    return hours * 3600 + minutes * 60 + seconds;
 }
 
-function counter(i, id) {
+function counter(id) {
+    time = getTime(id);
+    time = seconds(time);
+    console.log("time  : " + time)
     hide('start ' + id);
     show('stop ' + id);
     // This block will be executed 100 times.
     timer = setInterval(function() {
-      if (i == 0) { clearInterval(this); console.log("stopped"); }
-      else { console.log('Currently at ' + (i--));
-      document.getElementById(id).innerHTML = hms(i);}
+      if (time == 0) {console.log("stopped"); endCount(id)}
+      else { console.log('Currently at ' + (time--));
+      document.getElementById(id).innerHTML = hms(time);}
     }, 1000);
 }
 
@@ -50,6 +54,11 @@ function stopCount(id) {
     console.log("stopped" + id)
 }
 
+function endCount(id) {
+    document.getElementById("alertbox").innerHTML ='<div class="alert alert-warning"> <strong>Your timer has ended.</strong></div>'
+    stopCount(id)
+}
+
 function save(time, unicid) {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
@@ -57,4 +66,20 @@ function save(time, unicid) {
     }
     xmlhttp.open("GET", "savetime.php?time=" + time + "&unicid=" + unicid);
     xmlhttp.send();
+}
+
+function getTimeDist(unicid) {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log("hello")
+        console.log(this.responseText);
+        time = this.responseText;
+    }
+    xmlhttp.open("GET", "gettime.php?unicid=" + unicid);
+    xmlhttp.send();
+}
+
+function getTime(unicid) {
+    console.log(document.getElementById(unicid).innerHTML);
+    return document.getElementById(unicid).innerHTML;
 }
