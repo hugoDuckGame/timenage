@@ -52,7 +52,7 @@ if (isset($_COOKIE['sessionID'])) {
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<h2>Your Projects<br>Logged in as " . $row['f_name'] . " " . $row['name'] . ".";
+        echo "<div class'homeInfo'><h2>Your Projects<br>Logged in as " . $row['f_name'] . " " . $row['name'] . ".</h2> </div>";
     }
     } else {
         echo "Error 6001 : Unable to log in, please try again";

@@ -29,6 +29,7 @@ timer-tag {
     margin-left: 6.25%;
     margin-top: 5%;
     padding: 8px;
+    padding-top:16px;
     text-align: center;
 }
 
@@ -37,4 +38,8 @@ body{
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
+}
+
+nav {
+    height: 100px;
 }
