@@ -19,26 +19,16 @@ if ($result->num_rows > 0) {
     $hashed_pass = $row['hashed_pass'];
   }
 } else {
-    die("Could not acess the account");
+    die("Could not access the account");
 }
 $conn->close();
 
-
-
 if ($hashed_pass == hash('md5', $_GET['password'])) {
-    if (isset($_COOKIE['sessionID'])){
-      setcookie('sessionID', $id, time() + (86400 * 30), "/");
-    }
-    else{
-      setcookie('sessionID', $id, time() + (86400 * 30));
-    }
-    //echo "<script>window.location.replace('index.php');</script>";
-    echo setcookie('sessionID', $id, time() + (86400 * 30), "/");
+    setcookie('sessionID', $id, time() + (86400 * 30), "/");
     echo $id;
-}
-else {
+    echo "<script>window.location.replace('index.php');</script>";
+} else {
     echo "<script>alert('Failed to log in, redirecting'); 
     window.location.replace('login.html');</script>";
 }
 ?>
-
