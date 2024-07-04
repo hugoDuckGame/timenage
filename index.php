@@ -46,13 +46,13 @@ if (isset($_COOKIE['sessionID'])) {
     }
 
     //First request to retrieve user info
-    $sql = "SELECT `f_name` FROM `users` WHERE id='" . $_COOKIE['sessionID'] . "'";
+    $sql = "SELECT `f_name`, `name` FROM `users` WHERE id='" . $_COOKIE['sessionID'] . "'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "Bonjour, " . $row['f_name'] . ".";
+        echo "<h2>Your Projects<br>Logged in as " . $row['f_name'] . " " . $row['name'] . ".";
     }
     } else {
         echo "Error 6001 : Unable to log in, please try again";
@@ -70,8 +70,6 @@ if (isset($_COOKIE['sessionID'])) {
     } else {
         echo "0 results";
     }
-
-    print_r($unicids);
 
     //Third request to gather the 8 cards
     $sql = "SELECT `unicid`, `proj_name`, `curr_time` FROM `usr_projects` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `unicid`";
