@@ -1,5 +1,6 @@
 let time;
 var timer;
+let resp;
 
 function hide(classname) {
     var stopButtons = document.getElementsByClassName(classname);
@@ -83,3 +84,27 @@ function getTime(unicid) {
     console.log(document.getElementById(unicid).innerHTML);
     return document.getElementById(unicid).innerHTML;
 }
+
+function updateTodo(unicid) {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log(this.responseText);
+    }
+    xmlhttp.open("GET", "checktask.php?id=" + unicid);
+    xmlhttp.send();
+
+    console.log(document.getElementById("check-" + unicid).innerHTML, resp)
+    if(document.getElementById("check-" + unicid).innerHTML == "Undo") {
+        document.getElementById("check-" + unicid).innerHTML = 'Done';
+        document.getElementById("check-" + unicid).classList.remove("btn-warning");
+        document.getElementById("check-" + unicid).classList.add("btn-success");
+        console.log("Undo -> done");
+    }
+    else {
+        document.getElementById("check-" + unicid).innerHTML = 'Undo';
+        document.getElementById("check-" + unicid).classList.remove("btn-success");
+        document.getElementById("check-" + unicid).classList.add("btn-warning");
+        console.log("done -> udno");
+    }
+}
+

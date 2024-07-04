@@ -74,25 +74,42 @@ if (isset($_COOKIE['sessionID'])) {
     }
 
     //Third request to gather the 8 cards
-    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date`, `isdone`";
+    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
     $result = $conn->query($sql);
+
 
     if ($result->num_rows > 0) {
     // output data of each row
         $count = mysqli_num_rows($result);
         while($row = $result->fetch_assoc()) {
-            echo "<div class='col-sm-6 panel panel-default'>
+            echo "<div class='todoBox col-sm-2 panel panel-default'>
                     <div class='panel-heading'>
-                        <h5>" . $row['name'] ."</h5>
+                        <h6>" . $row['name'] ."</h6>
                     </div>
                     <div class='panel-body'>
                         <h6>" . $row['description'] . "</h6>
-                        <input type='checkbox'></input>
+                        <div class='check " . $row['unicid'] . "'>
+                            <button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>
+                        </div>
                     </div>
                     <div class='panel-footer'>
-                        <h6>" . $row['date'] . "</h6>
+                        <h7>" . $row['date'] . "</h7>
                     </div>
                 </div>";
+            if($row['isdone'] == 0 ) {
+                echo "<script>
+                document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Done'; 
+                document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-warning')
+                document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-success')
+                </script>";
+            }
+            else {
+                echo "<script>
+                document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Undo'; 
+                document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-success')
+                document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-warning')
+                </script>";
+            }
         if($count>8) {
             echo '<ul class="pagination">';
             while ($counter < $count/8) {
@@ -100,15 +117,14 @@ if (isset($_COOKIE['sessionID'])) {
             }
         }
     }
-    } else {
-        echo "Error 6001 : Unable to log in, please try again";
-    }
-    echo "<a href='newTodo.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
+}
+    echo "<a href='newTodo.html' class='col-sm-2 newBtnTodo btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
     $conn->close();
 }
 else {
     echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
 }
+
 
 
 
