@@ -38,8 +38,10 @@ body{
     background-size:     cover;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
+    text-align: center;
 }
 
 nav {
     height: 100px;
+    vertical-align: middle;
 }
