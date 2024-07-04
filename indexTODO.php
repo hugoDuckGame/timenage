@@ -72,12 +72,14 @@ if (isset($_COOKIE['sessionID'])) {
         while($row = $result->fetch_assoc()) {
         if(isset($date)) {
             if($date != $row['date']){
+                //echo "</div>";
                 echo "<div class='todoBox col-sm-2 panel panel-default'>
                         <div class='panel-body'>
                             <h1 style='color: black;'>Tasks for the</h1>
                             <h1 style='color: black;'>" . $row['date'] . "</h1>
                         </div>
-                    </div>";
+                    ";
+                //echo "</div> <div style='border-radius: 20px; border: 2px; border-style: dotted; padding: 8px; height: 210px;' class='surrounding'>";
             }
         }
             echo "<div class='todoBox col-sm-2 panel panel-default'>

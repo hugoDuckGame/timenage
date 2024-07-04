@@ -80,3 +80,11 @@ nav {
     margin: 0 auto;
 }
 
+.surrounding {
+    border-radius: 20px;
+    border: 2px;
+    border-style: dotted;
+    padding: 8px;
+    height: 210px;
+}
+
