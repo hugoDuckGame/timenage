@@ -38,7 +38,7 @@ timer-tag {
 
 body{
     background-image: url("bg.svg");
-    background-size:     cover;                      /* <------ */
+    background-size:     cover;                     
     background-repeat:   no-repeat;
     background-position: center center;
     text-align: center;
