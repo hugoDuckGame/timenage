@@ -11,9 +11,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
-
-echo $_GET['email'];
 
 $sql = "SELECT `id`, `hashed_pass` FROM `users` WHERE email='" . $_GET['email'] . "'";
 $result = $conn->query($sql);
@@ -25,14 +22,13 @@ if ($result->num_rows > 0) {
     $hashed_pass = $row['hashed_pass'];
   }
 } else {
-  echo "0 results";
+    die("Could not acess the account");
 }
 $conn->close();
 
 if ($hashed_pass == hash('md5', $_GET['password'])) {
-    echo "logged in";
     setcookie('sessionID', $id, time() + (86400 * 30), "/");
-    //echo "<script>window.location.replace('index.php');</script>";
+    echo "<script>window.location.replace('index.php');</script>";
 }
 else {
     echo "<script>alert('Failed to log in, redirecting'); 
