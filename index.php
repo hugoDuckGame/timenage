@@ -4,6 +4,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="main.css">
+    <title>Home - DG Timenage</title>
+    <link rel="icon" type="image/x-icon" href="duck-icon.ico">
 </head>
 <div id="alertbox"></div>
 
