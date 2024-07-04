@@ -7,13 +7,19 @@
 </head>
 <div id="alertbox"></div>
 
-<a href="login.html">Login HTML</a>
-<a href="login.php">Login PHP</a>
-<a href="register.html">Reg HTML</a>
-<a href="register.php">Reg PHP</a>
-<a href="new.html">New HTML</a>
-<a href="new.php">New PHP</a>
-<a href=""></a>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">DG Timenage</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="new.html">Create a new task</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+        </ul>
+    </div>
+</nav>
 
 <?php
 $counter = 0;
