@@ -22,7 +22,7 @@ h6{
 
 timer-tag {
     font-size: 66px;
-    vertical-align: bottom;
+    vertical-align: sub;
 }
 
 .newBtn {
