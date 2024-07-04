@@ -55,6 +55,11 @@ if (isset($_COOKIE['sessionID'])) {
         echo "Error 6001 : Unable to log in, please try again";
     }
 
+    echo"<ul class='pager'>
+        <li><a href='index.php' class='active'>Timers</a></li>
+        <li><a href='indexTodo.php'>To-Do Tasks</a></li>
+        </ul>";
+
     //Second request to get a list of all the unicids
     $sql = "SELECT `unicid` FROM `usr_projects` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `unicid`";
     $result = $conn->query($sql);
