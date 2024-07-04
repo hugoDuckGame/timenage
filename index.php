@@ -9,7 +9,7 @@
 
 <div id="alertbox"></div>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default py-5">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">DG Timenage</a>
@@ -79,10 +79,11 @@ if (isset($_COOKIE['sessionID'])) {
     // output data of each row
         $count = mysqli_num_rows($result);
         while($row = $result->fetch_assoc()) {
-            echo "<div class='timerBox col-sm-3'>
-                    <h5>". $row['proj_name'] ."</h5>
-                    <h6>Proj desc</h6>
-                    <div class='timer'>
+            echo "<div class='timerBox col-sm-3 panel panel-default'>
+                    <div class='panel-heading'>
+                        <h5>". $row['proj_name'] ."</h5>
+                    </div>
+                    <div class='timer panel-body'>
                         <div class='start " . $row['unicid'] . "'>
                             <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
                         </div>
@@ -106,7 +107,7 @@ if (isset($_COOKIE['sessionID'])) {
     } else {
         echo "Error 6001 : Unable to log in, please try again";
     }
-    echo "<a href='new.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span>Add a new task</a>";
+    echo "<a href='new.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
     $conn->close();
 }
 else {

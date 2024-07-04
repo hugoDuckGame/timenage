@@ -8,6 +8,8 @@
     background-color: rgb(255, 255, 255);
 }
 
+h2 {color: white;}
+
 h5 {
     font-size: 48px;
 }
@@ -27,6 +29,7 @@ timer-tag {
     margin-left: 6.25%;
     margin-top: 5%;
     padding: 8px;
+    text-align: center;
 }
 
 body{
