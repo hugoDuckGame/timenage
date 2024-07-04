@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="main.css">
     <title>Home - DG Timenage</title>
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
-</head>
+
 <div id="alertbox"></div>
 
 <nav class="navbar navbar-default">
@@ -23,6 +23,10 @@
     </div>
 </nav>
 
+</head>
+
+<body>
+</body>
 <?php
 $counter = 0;
 $unicids = array();
