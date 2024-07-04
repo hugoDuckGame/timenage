@@ -60,18 +60,6 @@ if (isset($_COOKIE['sessionID'])) {
         <li><a href='indexTodo.php' class='active'>To-Do Tasks</a></li>
         </ul>";
 
-    //Second request to get a list of all the unicids
-    $sql = "SELECT `unicid` FROM `usr_projects` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `unicid`";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $unicids[] = $row['unicid'];
-    }
-    } else {
-        echo "0 results";
-    }
 
     //Third request to gather the 8 cards
     $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
@@ -82,6 +70,16 @@ if (isset($_COOKIE['sessionID'])) {
     // output data of each row
         $count = mysqli_num_rows($result);
         while($row = $result->fetch_assoc()) {
+        if(isset($date)) {
+            if($date != $row['date']){
+                echo "<div class='todoBox col-sm-2 panel panel-default'>
+                        <div class='panel-body'>
+                            <h1 style='color: black;'>Tasks for the</h1>
+                            <h1 style='color: black;'>" . $row['date'] . "</h1>
+                        </div>
+                    </div>";
+            }
+        }
             echo "<div class='todoBox col-sm-2 panel panel-default'>
                     <div class='panel-heading'>
                         <h6>" . $row['name'] ."</h6>
@@ -116,6 +114,7 @@ if (isset($_COOKIE['sessionID'])) {
                 echo '<li><a href="#"></a></li>';
             }
         }
+    $date = $row['date'];
     }
 }
     echo "<a href='newTodo.html' class='col-sm-2 newBtnTodo btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
