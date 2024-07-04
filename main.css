@@ -5,6 +5,7 @@
     margin-left: 6.25%;
     margin-top: 5%;
     padding: 8px;
+    background-color: antiquewhite;
 }
 
 h5 {
@@ -30,4 +31,5 @@ timer-tag {
 
 body{
     background-image: url("bg.svg");
+    background-size: contain;
 }
