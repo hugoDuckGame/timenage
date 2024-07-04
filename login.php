@@ -23,8 +23,8 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 
-echo $id;
-echo setcookie('sessionID', $id, time() + (86400 * 30), "/");
+
+
 if ($hashed_pass == hash('md5', $_GET['password'])) {
     if (isset($_COOKIE['sessionID'])){
       setcookie('sessionID', $id, time() + (86400 * 30), "/");
@@ -33,7 +33,8 @@ if ($hashed_pass == hash('md5', $_GET['password'])) {
       setcookie('sessionID', $id, time() + (86400 * 30));
     }
     //echo "<script>window.location.replace('index.php');</script>";
-    
+    echo setcookie('sessionID', $id, time() + (86400 * 30), "/");
+    echo $id;
 }
 else {
     echo "<script>alert('Failed to log in, redirecting'); 
