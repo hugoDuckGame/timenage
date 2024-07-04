@@ -24,9 +24,8 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 if ($hashed_pass == hash('md5', $_GET['password'])) {
-    setcookie('sessionID', $id, time() + (86400 * 30), "/");
-    echo $id;
-    echo "<script>window.location.replace('index.php');</script>";
+    echo "<script>document.cookie = 'sessionID=" . $id . "';</script>";
+    //echo "<script>window.location.replace('index.php');</script>";
 } else {
     echo "<script>alert('Failed to log in, redirecting'); 
     window.location.replace('login.html');</script>";
