@@ -16,7 +16,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="new.html">Create a new task</a></li>
+            <li><a href="newTodo.html">Create a new task</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="register.html">Sign Up</a></li>
         </ul>
@@ -69,31 +69,25 @@ if (isset($_COOKIE['sessionID'])) {
     }
 
     //Third request to gather the 8 cards
-    $sql = "SELECT `unicid`, `proj_name`, `curr_time` FROM `usr_projects` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `unicid`";
+    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date`, `isdone`";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     // output data of each row
         $count = mysqli_num_rows($result);
         while($row = $result->fetch_assoc()) {
-            echo "<div class='timerBox col-sm-3 panel panel-default'>
+            echo "<div class='col-sm-6 panel panel-default'>
                     <div class='panel-heading'>
-                        <h5>". $row['proj_name'] ."</h5>
+                        <h5>" . $row['name'] ."</h5>
                     </div>
-                    <div class='timer panel-body'>
-                        <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
-                        <div class='start " . $row['unicid'] . "'>
-                            <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
-                        </div>
-                        <div class='stop " . $row['unicid'] . "'>
-                            <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
-                        </div>
+                    <div class='panel-body'>
+                        <h6>" . $row['description'] . "</h6>
+                        <input type='checkbox'></input>
                     </div>
-                </div>
-                <script>
-                    hide('stop')
-                </script>
-                ";
+                    <div class='panel-footer'>
+                        <h6>" . $row['date'] . "</h6>
+                    </div>
+                </div>";
         if($count>8) {
             echo '<ul class="pagination">';
             while ($counter < $count/8) {
@@ -104,7 +98,7 @@ if (isset($_COOKIE['sessionID'])) {
     } else {
         echo "Error 6001 : Unable to log in, please try again";
     }
-    echo "<a href='new.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
+    echo "<a href='newTodo.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
     $conn->close();
 }
 else {
