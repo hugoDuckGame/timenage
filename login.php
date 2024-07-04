@@ -30,12 +30,12 @@ if ($hashed_pass == hash('md5', $_GET['password'])) {
     else{
       setcookie('sessionID', $id, time() + (86400 * 30));
     }
-    echo "<script>window.location.replace('index.php');</script>";
+    //echo "<script>window.location.replace('index.php');</script>";
     
 }
 else {
     echo "<script>alert('Failed to log in, redirecting'); 
-                  window.location.replace('login.html');</script>";
+    window.location.replace('login.html');</script>";
 }
 ?>
 
