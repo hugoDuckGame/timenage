@@ -84,13 +84,13 @@ if (isset($_COOKIE['sessionID'])) {
                         <h5>". $row['proj_name'] ."</h5>
                     </div>
                     <div class='timer panel-body'>
+                        <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
                         <div class='start " . $row['unicid'] . "'>
                             <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
                         </div>
                         <div class='stop " . $row['unicid'] . "'>
                             <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
                         </div>
-                        <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
                     </div>
                 </div>
                 <script>
