@@ -23,6 +23,7 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 
+echo $id;
 if ($hashed_pass == hash('md5', $_GET['password'])) {
     if (isset($_COOKIE['sessionID'])){
       setcookie('sessionID', $id, time() + (86400 * 30), "/");
