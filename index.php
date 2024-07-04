@@ -21,7 +21,7 @@ $unicids = array();
 $page = 0;
 $servername = "db5016032132.hosting-data.io";
 $username = "dbu1200988";
-$password = "wV9BuQ-F&t/?V$z";
+$password = "wV9BuQ-F&t/?V\$z";
 $dbname = "dbs13060811";
 
 // Create connection
@@ -30,7 +30,7 @@ if (isset($_COOKIE['sessionID'])) {
 
     // Check connection
     if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
 
     //First request to retrieve user info
@@ -43,7 +43,7 @@ if (isset($_COOKIE['sessionID'])) {
         echo "Bonjour, " . $row['f_name'] . ".";
     }
     } else {
-    echo "Error 6001 : Unable to log in, please try again";
+        echo "Error 6001 : Unable to log in, please try again";
     }
 
     //Second request to get a list of all the unicids
@@ -56,7 +56,7 @@ if (isset($_COOKIE['sessionID'])) {
         $unicids[] = $row['unicid'];
     }
     } else {
-    echo "0 results";
+        echo "0 results";
     }
 
     print_r($unicids);
@@ -67,25 +67,25 @@ if (isset($_COOKIE['sessionID'])) {
 
     if ($result->num_rows > 0) {
     // output data of each row
-    $count = mysqli_num_rows($result);
-    while($row = $result->fetch_assoc()) {
-        echo "<div class='timerBox col-sm-3'>
-                <h5>". $row['proj_name'] ."</h5>
-                <h6>Proj desc</h6>
-                <div class='timer'>
-                    <div class='start " . $row['unicid'] . "'>
-                        <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
+        $count = mysqli_num_rows($result);
+        while($row = $result->fetch_assoc()) {
+            echo "<div class='timerBox col-sm-3'>
+                    <h5>". $row['proj_name'] ."</h5>
+                    <h6>Proj desc</h6>
+                    <div class='timer'>
+                        <div class='start " . $row['unicid'] . "'>
+                            <button class='btn btn-success' onclick='counter(".  $row['unicid'] . ")'>Start</button>
+                        </div>
+                        <div class='stop " . $row['unicid'] . "'>
+                            <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
+                        </div>
+                        <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
                     </div>
-                    <div class='stop " . $row['unicid'] . "'>
-                        <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
-                    </div>
-                    <timer-tag id='". $row['unicid'] ."'>". gmdate("H:i:s", $row['curr_time']) ."</timer-tag>
                 </div>
-            </div>
-            <script>
-                hide('stop')
-            </script>
-            ";
+                <script>
+                    hide('stop')
+                </script>
+                ";
         if($count>8) {
             echo '<ul class="pagination">';
             while ($counter < $count/8) {
@@ -94,14 +94,15 @@ if (isset($_COOKIE['sessionID'])) {
         }
     }
     } else {
-    echo "Error 6001 : Unable to log in, please try again";
+        echo "Error 6001 : Unable to log in, please try again";
     }
+    echo "<a href='new.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span>Add a new task</a>";
+    $conn->close();
 }
 else {
     echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
 }
-echo "<a href='new.html' class='col-sm-3 newBtn btn btn-info'><span class='glyphicon glyphicon-plus'></span>Add a new task</a>";
-$conn->close();
+
 
 
 ?>
