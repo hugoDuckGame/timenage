@@ -156,4 +156,12 @@ nav {
         padding-left: 4px;
         padding-right: 4px;
     }
+
+    body{
+        background-image: url("mob-bg.svg");
+        background-size:     cover;                     
+        background-repeat:   no-repeat;
+        background-position: center center;
+        text-align: center;
+    }
   }
