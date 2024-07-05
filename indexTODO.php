@@ -130,21 +130,18 @@ if (isset($_COOKIE['sessionID'])) {
                 document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-warning')
                 </script>";
             }
-        if($count>8) {
-            echo '<ul class="pagination">';
-            while ($counter < $count/8) {
-                echo '<li><a href="#"></a></li>';
-            }
+        
         }
     $date = $row['date'];
     }
-}
+
     echo "<a href='newTodo.html' class='col-sm-2 newBtnTodo btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
     $conn->close();
 }
 else {
     echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
-}
+    }
+
 
 
 
