@@ -2,10 +2,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="functions.js"></script>
-    <link rel="stylesheet" href="main.css">
+    <script src="static/functions.js"></script>
+    <link rel="stylesheet" href="static/main.css">
     <title>Home - DG Timenage</title>
-    <link rel="icon" type="image/x-icon" href="duck-icon.ico">
+    <link rel="icon" type="image/x-icon" href="images/duck-icon.ico">
 
 <div id="alertbox"></div>
 
@@ -16,9 +16,9 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="new.html">Create a new task</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="static/new.html">Create a new task</a></li>
+            <li><a href="static/login.html">Login</a></li>
+            <li><a href="static/register.html">Sign Up</a></li>
         </ul>
     </div>
 </nav>
@@ -28,7 +28,7 @@
 <body>
 </body>
 <?php
-include 'vars.php';
+include 'server/vars.php';
 $counter = 0;
 $unicids = array();
 $page = 0;
@@ -57,7 +57,7 @@ if (isset($_COOKIE['sessionID'])) {
 
     echo"<ul class='pager'>
         <li><a href='index.php' class='active'>Timers</a></li>
-        <li><a href='indexTodo.php'>To-Do Tasks</a></li>
+        <li><a href='server/indexTodo.php'>To-Do Tasks</a></li>
         </ul>";
 
     //Second request to get a list of all the unicids
@@ -107,7 +107,7 @@ if (isset($_COOKIE['sessionID'])) {
     $conn->close();
 }
 else {
-    echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
+    echo "<h2>Would you like to log in?</h2><br><a href='/static/login.html'>LOG IN</a>";
 }
 
 

@@ -2,10 +2,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="functions.js"></script>
-    <link rel="stylesheet" href="main.css">
+    <script src="/static/functions.js"></script>
+    <link rel="stylesheet" href="/static/main.css">
     <title>Home - DG Timenage</title>
-    <link rel="icon" type="image/x-icon" href="duck-icon.ico">
+    <link rel="icon" type="image/x-icon" href="/static/duck-icon.ico">
 
 <div id="alertbox"></div>
 
