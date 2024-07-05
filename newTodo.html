@@ -38,10 +38,21 @@
                     <label for="desc">Description:</label>
                     <input type="text" id="desc" name="desc">
                     <label for="date">Due date:</label>
-                    <input type="date" id="date" name="date">
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="ismult">Would you like this task to be unique or repeatable?:</label>
+                    <input type="checkbox" id="ismult" name="ismult" onclick="showHide()">
+                </div>
+                <div class="form-group"> 
+                    <div class="number">
+                        <label for="it">Enter number of planned iterations:</label>
+                        <input type="number" id="it" name="it">
+                    </div>
                 </div>
                 <input type="submit" value="Submit" class="btn btn-default">
             </form>
         </div>
     </div>
+    <script>hide('number');</script>
 </body>

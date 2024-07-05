@@ -13,9 +13,12 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-
-$sql = "INSERT INTO `usr_todos` (`id`, `name`, `description`, `date`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['desc'] . "', '" . $_GET['date'] . "')";
-
+if(isset($_GET['ismult'])){
+  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `description`, `date`, `planIt`, `ismult`,`times`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['desc'] . "', '" . $_GET['date'] . "', '" . $_GET['it'] . "', '1', '0')";
+}
+else {
+  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `description`, `date`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['desc'] . "', '" . $_GET['date'] . "')";
+}
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {

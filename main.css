@@ -15,7 +15,7 @@
     border-style: double;
     margin-left: 6.25%;
     margin-top: 5%;
-    padding: 8px;
+    padding: 2px;
     background-color: rgb(255, 255, 255);
     height: 190px;
 }
@@ -88,3 +88,7 @@ nav {
     height: 210px;
 }
 
+.counters {
+    display:inline;
+    float:left;
+}

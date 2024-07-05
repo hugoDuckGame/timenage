@@ -108,3 +108,26 @@ function updateTodo(unicid) {
     }
 }
 
+function showHide(){
+    if(document.getElementById("ismult").checked==true) {
+        show('number');
+    }
+    else {
+        hide('number');
+    }
+}
+
+function addTodo(unicid, action) {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log("hello")
+        console.log(this.responseText);
+        time = this.responseText;
+    }
+    xmlhttp.open("GET", "addremTodo.php?unicid=" + unicid + "&action=" + action);
+    xmlhttp.send();
+    let val = parseInt(document.getElementById("counter-" + unicid).innerHTML);
+    if(action==1) {document.getElementById("counter-" + unicid).innerHTML = val +1 ;}
+    else {document.getElementById("counter-" + unicid).innerHTML = val-1 ;}
+}
+

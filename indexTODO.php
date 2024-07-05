@@ -62,7 +62,7 @@ if (isset($_COOKIE['sessionID'])) {
 
 
     //Third request to gather the 8 cards
-    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
+    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
     $result = $conn->query($sql);
 
 
@@ -75,8 +75,9 @@ if (isset($_COOKIE['sessionID'])) {
                 //echo "</div>";
                 echo "<div class='todoBox col-sm-2 panel panel-default'>
                         <div class='panel-body'>
-                            <h1 style='color: black;'>Tasks for the</h1>
-                            <h1 style='color: black;'>" . $row['date'] . "</h1>
+                            <h2 style='color: black;'>Tasks for the</h2>
+                            <h2 style='color: black;'>" . $row['date'] . "</h2>
+                        </div>
                         </div>
                     ";
                 //echo "</div> <div style='border-radius: 20px; border: 2px; border-style: dotted; padding: 8px; height: 210px;' class='surrounding'>";
@@ -86,11 +87,17 @@ if (isset($_COOKIE['sessionID'])) {
                     <div class='panel-heading'>
                         <h6>" . $row['name'] ."</h6>
                     </div>
-                    <div class='panel-body'>
+
+              <div class='panel-body'>
                         <h6>" . $row['description'] . "</h6>
-                        <div class='check " . $row['unicid'] . "'>
-                            <button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>
-                        </div>
+                        <div class='check " . $row['unicid'] . "'>"; 
+                        if ($row['ismult'] == 0) {echo "<button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>";}
+                        else {echo "
+                            <button id='add-" . $row['unicid'] . "' class='btn btn-xs' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
+                            <button id='remove-" . $row['unicid'] . "' class='btn btn-xs' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
+                            <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters' >/" . $row['planIt'] . "</h4></div>
+                            ";}
+                     echo "</div>
                     </div>
                     <div class='panel-footer'>
                         <h7>" . $row['date'] . "</h7>
