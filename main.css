@@ -71,7 +71,8 @@ body{
 }
 
 nav {
-        vertical-align: middle;
+    height: 100px;
+    vertical-align: middle;
 }
 
 .center {
