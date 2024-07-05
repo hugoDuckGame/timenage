@@ -99,12 +99,6 @@ if (isset($_COOKIE['sessionID'])) {
                     hide('stop')
                 </script>
                 ";
-        if($count>8) {
-            echo '<ul class="pagination">';
-            while ($counter < $count/8) {
-                echo '<li><a href="#"></a></li>';
-            }
-        }
     }
     } else {
         echo "Error 6001 : Unable to log in, please try again";
