@@ -9,7 +9,7 @@
 
 <div id="alertbox"></div>
 
-<nav class="navbar navbar-default py-5">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">DG Timenage</a>
@@ -79,7 +79,7 @@ if (isset($_COOKIE['sessionID'])) {
                             <h1 style='color: black;'>" . $row['date'] . "</h1>
                         </div>
                     ";
-                //echo "</div> <div style='border-radius: 20px; border: 2px; border-style: dotted; padding: 8px; height: 210px;' class='surrounding'>";
+                echo "</div> ";
             }
         }
             echo "<div class='todoBox col-sm-2 panel panel-default'>
@@ -113,7 +113,7 @@ if (isset($_COOKIE['sessionID'])) {
         if($count>8) {
             echo '<ul class="pagination">';
             while ($counter < $count/8) {
-                echo '<li><a href="#"></a></li>';
+               echo '<li><a href="#"></a></li>';
             }
         }
     $date = $row['date'];
