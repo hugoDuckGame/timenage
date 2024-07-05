@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
 
 <div id="alertbox"></div>
-
+<div></div>
 <nav class="navbar navbar-default py-5">
     <div class="container-fluid">
         <div class="navbar-header">

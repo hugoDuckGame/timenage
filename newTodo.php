@@ -28,5 +28,5 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 
-echo "<script>window.location.replace('indexTodo.php');</script>"
+echo "<script>window.location.replace('indexTODO.php');</script>"
 ?>  
