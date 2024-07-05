@@ -6,22 +6,34 @@
     <link rel="stylesheet" href="main.css">
     <title>Home - DG Timenage</title>
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
-
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 <div id="alertbox"></div>
 <div></div>
-<nav class="navbar navbar-default py-5">
+<nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">DG Timenage</a>
-        </div>
-        <ul class="nav navbar-nav">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          
+        </button>
+        <a class="navbar-brand" href="#">DG Timenage</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="newTodo.html">Create a new task</a></li>
+            <li><a href="new.html">Create a new task</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="register.html">Sign Up</a></li>
         </ul>
-    </div>
-</nav>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
 </head>
 
@@ -75,7 +87,7 @@ if (isset($_COOKIE['sessionID'])) {
                 //echo "</div>";
                 echo "<div class='todoBox col-sm-2 panel panel-default'>
                         <div class='panel-body'>
-                            <h2 style='color: black;'>Tasks for the</h2>
+                            <h2 style='color: black;' class='tft'>Tasks for the</h2>
                             <h2 style='color: black;'>" . $row['date'] . "</h2>
                         </div>
                         </div>
@@ -93,16 +105,17 @@ if (isset($_COOKIE['sessionID'])) {
                         <div class='check " . $row['unicid'] . "'>"; 
                         if ($row['ismult'] == 0) {echo "<button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>";}
                         else {echo "
-                            <button id='add-" . $row['unicid'] . "' class='btn btn-xs' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
-                            <button id='remove-" . $row['unicid'] . "' class='btn btn-xs' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
+                            <button id='add-" . $row['unicid'] . "' class='btn btn-xs btn-info btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
+                            <button id='remove-" . $row['unicid'] . "' class='btn btn-xs btn-warning btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
+                            <br>
                             <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters' >/" . $row['planIt'] . "</h4></div>
                             ";}
                      echo "</div>
-                    </div>
-                    <div class='panel-footer'>
+                    </div>"; 
+                    if ($row['ismult'] == 0) { echo "<div class='panel-footer'>
                         <h7>" . $row['date'] . "</h7>
-                    </div>
-                </div>";
+                    </div>";}
+                echo "</div>";
             if($row['isdone'] == 0 ) {
                 echo "<script>
                 document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Done'; 

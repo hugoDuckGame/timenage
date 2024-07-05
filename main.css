@@ -12,12 +12,13 @@
 .todoBox {
     border-radius: 20px;
     border: 5px;
-    border-style: double;
+    border-style: thin solid;
     margin-left: 6.25%;
     margin-top: 5%;
-    padding: 2px;
+    padding: 8px;
     background-color: rgb(255, 255, 255);
-    height: 190px;
+    height: 165px;
+    text-align: center;
 }
 
 h2 {color: white;}
@@ -58,7 +59,7 @@ timer-tag {
     padding: 8px;
     padding-top:16px;
     text-align: center;
-    height: 190px;
+    height: 160px;
 }
 
 
@@ -71,7 +72,6 @@ body{
 }
 
 nav {
-    height: 100px;
     vertical-align: middle;
 }
 
@@ -90,5 +90,70 @@ nav {
 
 .counters {
     display:inline;
-    float:left;
+    float:center;
+    text-align: center;
+    padding-top: 3px;
+    font-size: 15px;
 }
+.tft {
+    margin-top: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+    h5 {
+        font-size: 32px;
+        margin: 0px;
+    }
+    
+    h6{
+        font-size: 20px;
+        margin : 2px;
+    }
+    h2 {color: white;
+        font-size: 15px;
+    }
+    h1 {color: white;
+        font-size: 20px;}
+    timer-tag {
+        font-size: 35px;
+    }
+
+    .newBtn {
+        font-size: 400%;
+        height: 105px;
+        border-radius: 20px;
+        margin-left: 6.25%;
+        margin-top: 5%;
+        padding: 8px;
+        padding-top:8px;
+        text-align: center;
+    }
+    .timerBox {
+        border-radius: 20px;
+        border: 2px;
+        border-style: thin solid;
+        margin-left: 3.1%;
+        margin-right: 3.1%;
+        margin-top: 5%;
+        padding: 4px;
+        background-color: rgb(255, 255, 255);
+        height: 180px;
+        
+    }
+    
+    .todoBox {
+        border-radius: 20px;
+        border: 2px;
+        border-style: thin solid;
+        margin-left: 3.12%;
+        margin-right: 3.12%;
+        margin-top: 5%;
+        padding: 2px;
+        background-color: rgb(255, 255, 255);
+        height: 165px;
+        padding-top: 10px;
+        padding-bottom: 15px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+  }
