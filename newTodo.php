@@ -17,7 +17,7 @@ if(isset($_GET['ismult'])){
   $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`, `planIt`, `ismult`,`times`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['date'] . "', '" . $_GET['it'] . "', '1', '0')";
 }
 else {
-  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['date'] . "')";
+  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`,`ismult`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['date'] . "', '0')";
 }
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";

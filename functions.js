@@ -128,6 +128,17 @@ function addTodo(unicid, action) {
     xmlhttp.send();
     let val = parseInt(document.getElementById("counter-" + unicid).innerHTML);
     if(action==1) {document.getElementById("counter-" + unicid).innerHTML = val +1 ;}
-    else {document.getElementById("counter-" + unicid).innerHTML = val-1 ;}
+    else {document.getElementById("counter-" + unicid).innerHTML = val-1 ;};
 }
 
+function del(unicid, type) {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log("Deleted " + id);
+    }
+    xmlhttp.open("GET", "delete.php?unicid=" + unicid + "&tbn=" + type, true);
+    xmlhttp.send();
+    setTimeout(function() {
+        location.reload()
+      }, 3000);
+}

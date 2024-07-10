@@ -114,8 +114,12 @@ if (isset($_COOKIE['sessionID'])) {
                     </div>"; 
                     if ($row['ismult'] == 0) { echo "<div class='panel-footer'>
                         <h7>" . $row['date'] . "</h7>
-                    </div>";}
-                echo "</div>";
+                        ";}
+                    else {
+                        echo "<div class='panel-footer'>";
+                    }
+                echo "<button class='btn btn-xs btn-danger btn-sm' onclick='del(" . $row['unicid'] . ", \"usr_todos\")'><span class=\"glyphicon glyphicon-trash\"></span></button>
+                </div></div>";
             if($row['isdone'] == 0 ) {
                 echo "<script>
                 document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Done'; 
@@ -130,6 +134,7 @@ if (isset($_COOKIE['sessionID'])) {
                 document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-warning')
                 </script>";
             }
+            
         
         }
     $date = $row['date'];
