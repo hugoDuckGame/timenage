@@ -140,6 +140,7 @@ if (isset($_COOKIE['sessionID'])) {
         
         }
     $date = $row['date'];
+    echo "</div>";
     }
 
     echo "<a href='newTodo.html' class='col-sm-2 newBtnTodo btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
