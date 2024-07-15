@@ -38,6 +38,7 @@
 </head>
 
 <body>
+</body>
 <?php
 $counter = 0;
 $unicids = array();
@@ -60,7 +61,7 @@ if (isset($_COOKIE['sessionID'])) {
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<div class='homeInfo'><h1>Your Projects</h1><br><h2>Logged in as " . $row['f_name'] . " " . $row['name'] . ".</h2> </div>";
+        echo "<div class'homeInfo'><h1>Your Projects</h1><br><h2>Logged in as " . $row['f_name'] . " " . $row['name'] . ".</h2> </div>";
     }
     } else {
         echo "Error 6001 : Unable to log in, please try again";
@@ -81,66 +82,77 @@ if (isset($_COOKIE['sessionID'])) {
     if ($result->num_rows > 0) {
     // output data of each row
         $count = mysqli_num_rows($result);
-        $date = null; // Initialiser $date
         while($row = $result->fetch_assoc()) {
-            if ($date !== $row['date']) {
-                if ($date !== null) {
-                    echo "</div>";
-                }
-                $date = $row['date'];
+        if(isset($date)) {
+            if($date != $row['date']){
+                //echo "</div>";
                 echo "<div class='todoBox col-sm-2 panel panel-default'>
                         <div class='panel-body'>
                             <h2 style='color: black;' class='tft'>Tasks for the</h2>
                             <h2 style='color: black;'>" . $row['date'] . "</h2>
-                        </div>";
+                        </div>
+                        </div>
+                    ";
+                //echo "</div> <div style='border-radius: 20px; border: 2px; border-style: dotted; padding: 8px; height: 210px;' class='surrounding'>";
             }
+        }
             echo "<div class='todoBox col-sm-2 panel panel-default'>
                     <div class='panel-heading'>
                         <h6>" . $row['name'] ."</h6>
                     </div>
-                    <div class='panel-body'>
+
+              <div class='panel-body'>
                         <h6>" . $row['description'] . "</h6>
                         <div class='check " . $row['unicid'] . "'>"; 
-                        if ($row['ismult'] == 0) {
-                            echo "<button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>";
-                        } else {
-                            echo "<button id='add-" . $row['unicid'] . "' class='btn btn-xs btn-info btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
-                                  <button id='remove-" . $row['unicid'] . "' class='btn btn-xs btn-warning btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
-                                  <br>
-                                  <div class='panel-footer'>
-                                  <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters' >/" . $row['planIt'] . "</h4></div>";
-                        }
-                        echo "</div>
-                    </div>";
-                    if ($row['ismult'] == 0) { 
-                        echo "<h7>" . $row['date'] . "</h7>";
-                    } else {
+                        if ($row['ismult'] == 0) {echo "<button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>";}
+                        else {echo "
+                            <button id='add-" . $row['unicid'] . "' class='btn btn-xs btn-info btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
+                            <button id='remove-" . $row['unicid'] . "' class='btn btn-xs btn-warning btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
+                            <br>
+                            <div class='panel-footer'>
+                            <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters' >/" . $row['planIt'] . "</h4></div>
+                            ";}
+                     echo "</div>
+                    </div>"; 
+                    if ($row['ismult'] == 0) { echo "
+                        <h7>" . $row['date'] . "</h7>
+                        ";}
+                    else {
                         echo "<div class='panel-footer'>";
                     }
-                    echo "<button class='btn btn-xs btn-danger btn-sm' onclick='del(" . $row['unicid'] . ", \"usr_todos\")'><span class='glyphicon glyphicon-trash'></span></button>
-                    </div></div>";
-
-                    if ($row['isdone'] == 0 ) {
-                        echo "<script>
-                        document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Done'; 
-                        document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-warning')
-                        document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-success')
-                        </script>";
-                    } else {
-                        echo "<script>
-                        document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Undo'; 
-                        document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-success')
-                        document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-warning')
-                        </script>";
-                    }
+                echo "<button class='btn btn-xs btn-danger btn-sm' onclick='del(" . $row['unicid'] . ", \"usr_todos\")'><span class=\"glyphicon glyphicon-trash\"></span></button>
+                </div></div>";
+            if($row['isdone'] == 0 ) {
+                echo "<script>
+                document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Done'; 
+                document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-warning')
+                document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-success')
+                </script>";
+            }
+            else {
+                echo "<script>
+                document.getElementById('check-" . $row['unicid'] . "').innerHTML = 'Undo'; 
+                document.getElementById('check-" . $row['unicid'] . "').classList.remove('btn-success')
+                document.getElementById('check-" . $row['unicid'] . "').classList.add('btn-warning')
+                </script>";
+            }
+            
+        
         }
-        echo "</div>";
+    $date = $row['date'];
+    echo "</div>";
     }
 
     echo "<a href='newTodo.html' class='col-sm-2 newBtnTodo btn btn-info'><span class='glyphicon glyphicon-plus'></span></a>";
     $conn->close();
-} else {
-    echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
 }
+else {
+    echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
+    }
+
+
+
+
+
 ?>
-</body>
+
