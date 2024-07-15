@@ -1,6 +1,7 @@
 let time;
 var timer;
 let resp;
+let action;
 
 function hide(classname) {
     var stopButtons = document.getElementsByClassName(classname);
@@ -140,5 +141,36 @@ function del(unicid, type) {
     xmlhttp.send();
     setTimeout(function() {
         location.reload()
-      }, 3000);
+      }, 1000);
+}
+
+function updateRtn(unicid) {
+    if(document.getElementById("check-" + unicid).innerHTML == "Done") {
+        action = "c";
+    }
+    else {
+        action = "u"
+    }
+
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log(this.responseText);
+    }
+    xmlhttp.open("GET", "checkRtn.php?id=" + unicid + "&action=" + action);
+    xmlhttp.send();
+
+    console.log(document.getElementById("check-" + unicid).innerHTML, resp)
+    if(document.getElementById("check-" + unicid).innerHTML == "Undo") {
+        document.getElementById("check-" + unicid).innerHTML = 'Done';
+        document.getElementById("check-" + unicid).classList.remove("btn-warning");
+        document.getElementById("check-" + unicid).classList.add("btn-success");
+        console.log("Undo -> done");
+    }
+    else {
+        document.getElementById("check-" + unicid).innerHTML = 'Undo';
+        document.getElementById("check-" + unicid).classList.remove("btn-success");
+        document.getElementById("check-" + unicid).classList.add("btn-warning");
+        console.log("done -> udno");
+    }
+    
 }

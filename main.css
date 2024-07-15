@@ -9,6 +9,26 @@
     height: 305px;
 }
 
+.rtnBox {
+    border-radius: 20px;
+    border: 5px;
+    padding: 8px;
+    background-color: rgb(255, 255, 255);
+}
+
+.rtnMainBox {
+    margin-left:10%;
+}
+
+.rtnTask > *{
+    display: inline-block;
+}
+
+.rtnTask > button {
+    text-align: right;
+}
+
+
 .todoBox {
     border-radius: 20px;
     border: 5px;

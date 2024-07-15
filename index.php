@@ -70,6 +70,7 @@ if (isset($_COOKIE['sessionID'])) {
     echo"<ul class='pager'>
         <li><a href='index.php' class='active'>Timers</a></li>
         <li><a href='indexTodo.php'>To-Do Tasks</a></li>
+        <li><a href='indexRtn.php'>Routines</a></li>
         </ul>";
 
     //Second request to get a list of all the unicids
@@ -105,6 +106,9 @@ if (isset($_COOKIE['sessionID'])) {
                         <div class='stop " . $row['unicid'] . "'>
                             <button class='btn btn-danger' onclick='stopCount(" . $row['unicid'] . ")'>Stop</button>
                         </div>
+                    </div>
+                    <div class='panel-footer'>
+                        <button class='btn btn-xs btn-danger btn-sm' onclick='del(" . $row['unicid'] . ", \"usr_todos\")'><span class=\"glyphicon glyphicon-trash\"></span></button>
                     </div>
                 </div>
                 <script>

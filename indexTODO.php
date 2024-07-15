@@ -70,6 +70,7 @@ if (isset($_COOKIE['sessionID'])) {
     echo"<ul class='pager'>
         <li><a href='index.php'>Timers</a></li>
         <li><a href='indexTodo.php' class='active'>To-Do Tasks</a></li>
+        <li><a href='indexRtn.php'>Routines</a></li>
         </ul>";
 
 
@@ -108,11 +109,12 @@ if (isset($_COOKIE['sessionID'])) {
                             <button id='add-" . $row['unicid'] . "' class='btn btn-xs btn-info btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
                             <button id='remove-" . $row['unicid'] . "' class='btn btn-xs btn-warning btn-sm btn-block' onclick='addTodo(".  $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
                             <br>
+                            <div class='panel-footer'>
                             <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters' >/" . $row['planIt'] . "</h4></div>
                             ";}
                      echo "</div>
                     </div>"; 
-                    if ($row['ismult'] == 0) { echo "<div class='panel-footer'>
+                    if ($row['ismult'] == 0) { echo "
                         <h7>" . $row['date'] . "</h7>
                         ";}
                     else {
