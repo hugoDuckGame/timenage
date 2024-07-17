@@ -84,7 +84,7 @@ timer-tag {
 
 
 body{
-    background-image: url("bg.svg");
+    background-image: url("bg2.svg");
     background-size:     cover;                     
     background-repeat:   no-repeat;
     background-position: center center;
@@ -183,5 +183,25 @@ nav {
         background-repeat:   no-repeat;
         background-position: center center;
         text-align: center;
+    }
+
+    .rtnBox {
+        border-radius: 20px;
+        border: 5px;
+        padding: 8px;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .rtnMainBox {
+        margin-left:4%;
+        margin-right:4%;
+    }
+    
+    .rtnTask > *{
+        display: inline-block;
+    }
+    
+    .rtnTask > button {
+        text-align: right;
     }
   }

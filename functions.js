@@ -3,6 +3,7 @@ var timer;
 let resp;
 let action;
 
+
 function hide(classname) {
     var stopButtons = document.getElementsByClassName(classname);
         for (var i = 0; i < stopButtons.length; i++) {
@@ -173,4 +174,26 @@ function updateRtn(unicid) {
         console.log("done -> udno");
     }
     
+}
+
+function switchBG() {
+    if(document.getElementsByTagName("body")[0].style.backgroundImage == 'url("bg.svg")'){
+        document.getElementsByTagName("body")[0].style.backgroundImage = 'url("bg2.svg")';
+    }
+    else {
+        document.getElementsByTagName("body")[0].style.backgroundImage = 'url("bg.svg")';
+    }
+
+}
+
+
+function switchRtn() {
+    if(document.getElementById("nProj").style.display == 'none'){
+        document.getElementById("nProj").style.display = 'inline-block';
+        document.getElementById("nItem").style.display = 'none';
+    }
+    else {
+        document.getElementById("nItem").style.display = 'inline-block';
+        document.getElementById("nProj").style.display = 'none';
+    }
 }

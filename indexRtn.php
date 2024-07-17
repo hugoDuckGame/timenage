@@ -4,6 +4,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="slider.css">
     <title>Home - DG Timenage</title>
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -27,10 +28,14 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="new.html">Create a new task</a></li>
+            <li><a href="newRtn.php">Create a new task</a></li>
             <li><a href="login.html">Login</a></li>
             <li><a href="register.html">Sign Up</a></li>
         </ul>
+        <label class="switch">
+            <input type="checkbox" onclick="switchBG()">
+            <span class="slider round"></span>
+        </label>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
