@@ -79,7 +79,7 @@ if (isset($_COOKIE['sessionID'])) {
 
     //Second request to get all the projects and the tasks from them
     $rtnId = 0;
-    $sql = "SELECT `rtnId`, `unicid`, `id`, `name`, `isProject`, `isMand` FROM `usr_rtn` WHERE `id`='{$_COOKIE['sessionID']}' ORDER BY `rtnId` ASC, `isProject` DESC";
+    $sql = "SELECT `rtnId`, `unicid`, `id`, `name`, `isProject`, `isMand` FROM `usr_rtn` WHERE `id`='{$_COOKIE['sessionID']}' ORDER BY `rtnId` ASC, `isProject` DESC, `unicid` ASC ";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
