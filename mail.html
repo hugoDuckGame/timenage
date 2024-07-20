@@ -1,5 +1,8 @@
+<script src="functions.js"></script>
 <div class="container">
-    <form action="mail.php">
+    <label for="test">Is this mail a test?</label>
+    <input type="checkbox" id="test" name="test" onclick="switchTest()">
+    <form action="mail.php" id="form">
     <label for="subject">Subject</label>
       <input type="text" id="subject" name="subject" placeholder="Write something..">
       <label for="mail">Mail</label>

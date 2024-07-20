@@ -197,3 +197,12 @@ function switchRtn() {
         document.getElementById("nProj").style.display = 'none';
     }
 }
+
+function switchTest() {
+    if(document.getElementById("test").checked){
+        document.getElementById("form").action = 'mailtest.php';
+    }
+    else {
+        document.getElementById("form").action = 'mail.php';
+    }
+}
