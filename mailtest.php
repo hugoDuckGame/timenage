@@ -14,6 +14,7 @@ error_reporting(E_ALL);
     }
 
     mail("contact@duckgame.org",$_GET['subject'],$mail, $headers);
+    mail("hugoame2008@gmail.com",$_GET['subject'],$mail, $headers);
     echo "contact@duckgame.org" . $_GET['subject'] . $mail . $headers;
     
 ?>
