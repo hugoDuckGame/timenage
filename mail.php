@@ -1,5 +1,7 @@
 <meta charset="UTF-8">
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
     include 'vars.php';
 
     $headers = "From: contact@duckgame.com" . "\r\n";
