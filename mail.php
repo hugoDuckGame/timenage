@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
     include 'vars.php';
 
-    $headers = "From: contact@duckgame.com" . "\r\n";
+    $headers = "From: contact@duckgame.org" . "\r\n";
     if($_GET['mail'] != "") {
         $mail = $_GET['mail'];
         
