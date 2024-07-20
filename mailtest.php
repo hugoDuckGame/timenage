@@ -10,11 +10,10 @@ error_reporting(E_ALL);
         $mail = $_GET['mail'];
     }
     else {
-        $mail= file_get_contents($_GET['file']); 
+        $mail= "THIS IS A TEST MAIL - THIS IS A TEST MAIL - THIS IS A TEST MAIL - THIS IS A TEST MAIL" . file_get_contents($_GET['file']); 
     }
 
-    mail("contact@duckgame.org",$_GET['subject'],$mail, $headers);
-    mail("hugoame2008@gmail.com",$_GET['subject'],$mail, $headers);
+    mail($_GET['testReceive'],"TEST MAIL" . $_GET['subject'],$mail, $headers);
     echo "contact@duckgame.org" . $_GET['subject'] . $mail . $headers;
     
 ?>

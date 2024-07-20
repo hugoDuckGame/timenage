@@ -1,7 +1,6 @@
 <script src="functions.js"></script>
 <div class="container">
-    <label for="test">Is this mail a test?</label>
-    <input type="checkbox" id="test" name="test" onclick="switchTest()">
+    
     <form action="mail.php" id="form">
     <label for="subject">Subject</label>
       <input type="text" id="subject" name="subject" placeholder="Write something..">
@@ -11,7 +10,11 @@
       <label for="file">File</label>
       <input type="text" id="file" name="file" placeholder="Write something..">
       <input type="submit" value="Submit">
-  
+        TEST MAIL ZONE
+        <label for="test">Is this mail a test?</label>
+        <input type="checkbox" id="test" name="test" onclick="switchTest()">
+        <label for="testReceive">If this mail is a test please enter receiver mail</label>
+        <input type="email" id="testReceive" name="testReceive">
     </form>
   </div>
 
