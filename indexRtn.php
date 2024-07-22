@@ -73,7 +73,7 @@ if (isset($_COOKIE['sessionID'])) {
 
     echo"<ul class='pager'>
         <li><a href='index.php'>Timers</a></li>
-        <li><a href='indexTodo.php'>To-Do Tasks</a></li>
+        <li><a href='indexTd.php'>To-Do Tasks</a></li>
         <li><a href='indexRtn.php' class='active'>Routines</a></li>
         </ul>";
 

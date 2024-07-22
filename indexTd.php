@@ -68,13 +68,13 @@ if (isset($_COOKIE['sessionID'])) {
 
     echo"<ul class='pager'>
         <li><a href='index.php'>Timers</a></li>
-        <li><a href='indexTodo.php' class='active'>To-Do Tasks</a></li>
+        <li><a href='indexTd.php' class='active'>To-Do Tasks</a></li>
         <li><a href='indexRtn.php'>Routines</a></li>
         </ul>";
 
 
     //Third request to gather the 8 cards
-    $sql = "SELECT `unicid`, `name`, `description`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
+    $sql = "SELECT `unicid`, `name`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
     $result = $conn->query($sql);
 
 
@@ -99,7 +99,6 @@ if (isset($_COOKIE['sessionID'])) {
                         <h6>" . $row['name'] ."</h6>
                     </div>
                     <div class='panel-body'>
-                        <h6>" . $row['description'] . "</h6>
                         <div class='check " . $row['unicid'] . "'>"; 
                         if ($row['ismult'] == 0) {
                             echo "<button id='check-" . $row['unicid'] . "' class='btn btn-xs' onclick='updateTodo(".  $row['unicid'] . ")'></button>";
