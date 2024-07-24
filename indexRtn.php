@@ -136,7 +136,7 @@ if (isset($_COOKIE['sessionID'])) {
     }
 
     //Third request to update checked tasks
-    $sql = "SELECT `unicid` FROM `rtn_events` WHERE `id`='" . $_COOKIE['sessionID'] . "'";
+    $sql = "SELECT `unicid` FROM `rtn_events` WHERE `id`='" . $_COOKIE['sessionID'] . "' AND `date`='" . date('Y-m-d') . "'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
