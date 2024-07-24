@@ -42,7 +42,8 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 
-
-echo "<script>window.location.replace('indexRtn.php');</script>"
+if($_GET['isProject'] == 1){
+echo "<script>window.location.replace('indexRtn.php');</script>";
+}
 
 ?>

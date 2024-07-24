@@ -2,7 +2,7 @@ let time;
 var timer;
 let resp;
 let action;
-
+let itmName;
 
 function hide(classname) {
     var stopButtons = document.getElementsByClassName(classname);
@@ -205,4 +205,16 @@ function switchTest() {
     else {
         document.getElementById("form").action = 'mail.php';
     }
+}
+
+function addRtnEnt(rtnId) {
+    itmName = document.getElementById("title-" + rtnId).value;
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.onload = function() {
+        console.log(this.responseText);
+        
+    }
+    xmlhttp.open("GET", "newRtnCreate.php?project=" + rtnId + "&isProject=0&name=" + itmName);
+    xmlhttp.send();
+    window.location.href = "indexRtn.php";
 }

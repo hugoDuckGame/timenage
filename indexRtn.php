@@ -85,6 +85,8 @@ if (isset($_COOKIE['sessionID'])) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             if ($rtnId != 0 && $rtnId != $row['rtnId']) {
+                echo "<input type='text' name='title' id='title'>
+                      <button onclick='addRtnEnt(" . $rtnId . ")'>Add</button>";
                 echo "</div></div></div>"; // Fermer les divs ouvertes pour le projet précédent
             }
     
@@ -127,7 +129,9 @@ if (isset($_COOKIE['sessionID'])) {
                 </script>";
             }
         }
-    
+        
+        echo "<input type='text' name='title' id='title-". $rtnId ."'>
+              <button onclick='addRtnEnt(" . $rtnId . ")'>Add</button>";
         // Fermer les divs du dernier projet
         echo "</div></div></div>";
     }
