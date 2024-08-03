@@ -149,5 +149,5 @@
     <br>
     <br>
     <br>
-    <iframe src="newTodo.html" width="300px" height="200px"></iframe>
+    <iframe src="newTodo.html" width="300px" height="270px"></iframe>
     </body>

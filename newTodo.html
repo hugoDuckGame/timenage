@@ -64,5 +64,11 @@
             </form>
         </div>
     </div>
-    <script>hide('number');</script>
+    <script>hide('number');
+        if (window.self !== window.top) {
+        // La page est chargée dans une iframe
+            hide('navbar');
+            hide('panel-heading')
+        }
+    </script>
 </body>
