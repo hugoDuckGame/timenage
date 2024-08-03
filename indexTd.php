@@ -110,8 +110,17 @@
                     echo "<button id='add-" . $row['unicid'] . "' class='btn btn-xs btn-info btn-sm btn-block' onclick='addTodo(" . $row['unicid'] . ", 1)'><span class='glyphicon glyphicon-plus'></span></button>
                           <button id='remove-" . $row['unicid'] . "' class='btn btn-xs btn-warning btn-sm btn-block' onclick='addTodo(" . $row['unicid'] . ", 0)'><span class='glyphicon glyphicon-minus'></span></button>
                           <br>
-                          <div class='panel-footer'>
-                              <div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters'>/" . $row['planIt'] . "</h4></div>
+                          <div class='panel-footer'>";
+                          $counter = 0;
+                          while($counter < $row['times']) {
+                            echo "x";
+                            $counter += 1;
+                          }
+                          while($counter <= $row['planIt']) {
+                            echo ".";
+                            $counter += 1;
+                          }
+                             echo "<br><div class='counters'><h4 class='counters' id='counter-" . $row['unicid'] . "'>" . $row['times'] . "</h4><h4 class='counters'>/" . $row['planIt'] . "</h4></div>
                           </div>";
                 }
                 echo "</div>
