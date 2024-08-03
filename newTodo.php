@@ -7,17 +7,26 @@ include 'vars.php';
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+echo $servername . $username . $password . $dbname;
+
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
 
-if(isset($_GET['ismult'])){
-  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`, `planIt`, `ismult`,`times`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['date'] . "', '" . $_GET['it'] . "', '1', '0')";
+if($_GET['date'] == "") {
+  $date = "1980-01-01";
 }
 else {
-  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`,`ismult`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $_GET['date'] . "', '0')";
+  $date = $_GET['date'];
+}
+
+if(isset($_GET['ismult'])){
+  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`, `planIt`, `ismult`,`times`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $date . "', '" . $_GET['it'] . "', '1', '0')";
+}
+else {
+  $sql = "INSERT INTO `usr_todos` (`id`, `name`, `date`,`ismult`) VALUES ('" . $_COOKIE['sessionID'] . "', '" . $_GET['name'] . "', '" . $date . "', '0')";
 }
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -28,5 +37,12 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 
-echo "<script>window.location.replace('indexTODO.php');</script>"
+echo "<script>
+if(window.self == window.top){
+   window.location.replace('indexTd.php');
+}
+else {
+  window.location.replace('newTodo.html');
+}
+</script>"
 ?>  

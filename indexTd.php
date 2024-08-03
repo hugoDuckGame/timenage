@@ -74,7 +74,7 @@
 
 
         //Third request to gather the 8 cards
-        $sql = "SELECT `unicid`, `name`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY `date` ASC, `isdone` ASC";
+        $sql = "SELECT `unicid`, `name`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY CASE WHEN `date` = '1980-01-01' THEN 0 WHEN `date` >= CURRENT_DATE THEN 1 ELSE 2 END, `date` ASC, `isdone` ASC";
         $result = $conn->query($sql);
 
 
@@ -88,13 +88,15 @@
                         echo "</div>"; // Close previous date container
                     }
                     $date = $row['date'];
-                    echo "<div class='date-container'>
-                            <div class='todoBox col-sm-2 panel panel-default'>
-                                <div class='panel-body'>
-                                    <h2 style='color: black;' class='tft'>Tasks for the</h2>
-                                    <h2 style='color: black;'>" . $row['date'] . "</h2>
-                                </div>
-                            </div>";
+                    if($date != '1980-01-01') {
+                        echo "<div class='date-container'>
+                                <div class='todoBox col-sm-2 panel panel-default'>
+                                    <div class='panel-body'>
+                                        <h2 style='color: black;' class='tft'>Tasks for the</h2>
+                                        <h2 style='color: black;'>" . $row['date'] . "</h2>
+                                    </div>
+                                </div>";
+                    }
                 }
                 echo "<div class='todoBox col-sm-2 panel panel-default'>
                         <div class='panel-heading'>
@@ -114,7 +116,7 @@
                 }
                 echo "</div>
                     </div>";
-                if ($row['ismult'] == 0) {
+                if ($row['ismult'] == 0 && $row['date'] != "1980-01-01") {
                     echo "<h7>" . $row['date'] . "</h7>";
                 }
                 echo "<button class='btn btn-xs btn-danger btn-sm' onclick='del(" . $row['unicid'] . ", \"usr_todos\")'><span class='glyphicon glyphicon-trash'></span></button>
@@ -143,4 +145,9 @@
         echo "<h2>Would you like to log in?</h2><br><a href='login.html'>LOG IN</a>";
     }
     ?>
+
+    <br>
+    <br>
+    <br>
+    <iframe src="newTodo.html" width="300px" height="200px"></iframe>
     </body>
