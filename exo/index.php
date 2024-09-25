@@ -85,7 +85,7 @@ if($logged && isset($_GET['project'])){
     echo "<table>";
     $counter = 0;
     $project = $_GET['project'];
-    echo $exosv . $username . $exopw .$exodb;
+    echo $exosv . " " . $username . " " . $exopw . " " .$exodb;
     // Create connection
     $conn = new mysqli($exosv, $username, $exopw, $exodb);
     // Check connection
@@ -100,7 +100,7 @@ if($logged && isset($_GET['project'])){
     $sql = "SELECT * FROM `exos` WHERE project='{$_GET['project']}' ORDER BY `id`";
     $conn->set_charset("utf8mb4");
     $result = $conn->query($sql);
-    echo"test";
+    
 
     if ($result->num_rows > 0) {
         // output data of each row
