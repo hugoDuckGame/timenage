@@ -85,7 +85,7 @@ if($logged && isset($_GET['project'])){
     echo "<table>";
     $counter = 0;
     $project = $_GET['project'];
-
+    echo $exosv . $username . $exopw .$exodb;
     // Create connection
     $conn = new mysqli($exosv, $username, $exopw, $exodb);
     // Check connection
