@@ -2,7 +2,7 @@
 include '../vars.php'; 
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, "exo");
+$conn = new mysqli($exosv, $username, $exopw, "exo");
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
