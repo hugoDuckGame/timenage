@@ -74,7 +74,7 @@
 
 
         //Third request to gather the 8 cards
-        $sql = "SELECT `unicid`, `name`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY CASE WHEN `date` = '1980-01-01' THEN 0 WHEN `date` >= CURRENT_DATE THEN 1 ELSE 2 END, `date` ASC, `isdone` ASC";
+        $sql = "SELECT `unicid`, `name`, `isdone`, `date`, `ismult`, `times`, `planIt` FROM `usr_todos` WHERE id='" . $_COOKIE['sessionID'] . "' ORDER BY CASE WHEN `isdone` = 1 THEN 1 ELSE 0 END, CASE WHEN `date` = CURRENT_DATE THEN 0 WHEN `date` = '1980-01-01' THEN 1 WHEN `date` >= CURRENT_DATE THEN 2 ELSE 3 END, `date` ASC";
         $result = $conn->query($sql);
 
 
