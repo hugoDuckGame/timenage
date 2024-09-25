@@ -1,3 +1,6 @@
+<?php error_reporting(E_ALL);
+ini_set('display_errors', 1); ?>
+
 <head> 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
