@@ -71,6 +71,7 @@ if (isset($_COOKIE['sessionID'])) {
         <li><a href='index.php' class='active'>Timers</a></li>
         <li><a href='indexTd.php'>To-Do Tasks</a></li>
         <li><a href='indexRtn.php'>Routines</a></li>
+        <li><a href='exo/index.php'>Exo</a></li>
         </ul>";
 
     //Second request to get a list of all the unicids

@@ -75,6 +75,7 @@ if (isset($_COOKIE['sessionID'])) {
         <li><a href='index.php'>Timers</a></li>
         <li><a href='indexTd.php'>To-Do Tasks</a></li>
         <li><a href='indexRtn.php' class='active'>Routines</a></li>
+        <li><a href='exo/index.php'>Exo</a></li>
         </ul>";
 
     //Second request to get all the projects and the tasks from them

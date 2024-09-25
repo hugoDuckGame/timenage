@@ -70,6 +70,7 @@
             <li><a href='index.php'>Timers</a></li>
             <li><a href='indexTd.php' class='active'>To-Do Tasks</a></li>
             <li><a href='indexRtn.php'>Routines</a></li>
+            <li><a href='exo/index.php'>Exo</a></li>
             </ul>";
 
 
