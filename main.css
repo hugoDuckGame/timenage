@@ -91,7 +91,7 @@ body{
     background-image: url("bg2.svg");
     background-size:     cover;                     
     background-repeat:   no-repeat;
-    background-position: center center;
+    background-position:;
     text-align: center;
 }
 
