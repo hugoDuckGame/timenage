@@ -7,6 +7,7 @@ ini_set('display_errors', 1); ?>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
     <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="style.css">
     <title>Home - DG Timenage</title>
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -88,7 +89,7 @@ if($logged && isset($_GET['project'])){
     echo "<table>";
     $counter = 0;
     $project = $_GET['project'];
-    $conn = new mysqli($exosv, $exous, $exopw, $exodb)
+    $conn = new mysqli($exosv, $exous, $exopw, $exodb);
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -113,7 +114,10 @@ if($logged && isset($_GET['project'])){
             $counter+=1;
         }
     } else {
-        echo "0 results";
+        echo "<div class='nothing'>
+            <img src='bird.png'>
+        <h1 style='color:black'>Nothing to see here...</h1>
+    </div>";
     } 
     echo "</tr>";
 
@@ -149,7 +153,7 @@ if($logged && isset($_GET['project'])){
             echo "</tr>";
         }
     } else {
-        echo "0 results";
+        echo "";
     } 
 
 

@@ -7,3 +7,27 @@
     padding: 15px; /* Espace interne */
     text-align: left;
 }
+
+.nothing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    background-color: #f0f0f0; /* Couleur de fond */
+    color: #333; /* Couleur du texte */
+    text-align: center;
+}
+
+.imageNothing {
+    width: 200px; /* Largeur de l'espace réservé pour l'image */
+    height: 200px; /* Hauteur de l'espace réservé pour l'image */
+    background-color: #ccc; /* Couleur de fond de l'espace réservé */
+    border: 2px dashed #aaa; /* Bordure de l'espace réservé */
+    margin-bottom: 20px; /* Espacement entre l'image et le texte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Taille de la police pour le texte du placeholder */
+    color: #666; /* Couleur du texte du placeholder */
+}
