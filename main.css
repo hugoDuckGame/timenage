@@ -2,9 +2,6 @@ table, th, td {
     border:1px solid black;
     background-color: aliceblue;
   }
-table {
-    margin: 25px;
-}
 .timerBox {
     border-radius: 20px;
     border: 5px;
@@ -94,7 +91,7 @@ body{
     background-image: url("bg2.svg");
     background-size:     cover;                     
     background-repeat:   no-repeat;
-    background-position:;
+    background-position: center center;
     text-align: center;
 }
 

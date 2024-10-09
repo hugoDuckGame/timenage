@@ -3,17 +3,36 @@ let events;
 let styles  = [null, 'btn-danger', 'btn-warning', 'btn-info', 'btn-success'];
 
 function addEvent(project, session, id, type){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            getEvents(project);
-        }
-    };
-    xhttp.open("GET", "new.php?project=" + project + "&session=" + session + "&id=" + id + "&type=" + type, true);
-    xhttp.send();
+    let cl = document.getElementById(session + "-" + id + "-" + type).classList;
+    console.log(cl);
+    if (cl.contains('btn-default')){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                getEvents(project);
+                console.log("created");
+            }
+        };
+        xhttp.open("GET", "new.php?project=" + project + "&session=" + session + "&id=" + id + "&type=" + type, true);
+        xhttp.send();
+    }
+    else {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                getEvents(project);
+                console.log("aaa");
+                location.reload();
+            }
+        };
+        xhttp.open("GET", "delete.php?project=" + project + "&session=" + session + "&id=" + id + "&type=" + type, true);
+        xhttp.send();
+        
+    }
 }
 
 function getEvents(project){
+    console.log("getEvents");
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
