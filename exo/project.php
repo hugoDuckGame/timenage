@@ -86,6 +86,7 @@ else {
 }
 
 if($logged && isset($_GET['project'])){
+    echo "<h1 id='title' style='color:white'>{$_GET['title']}</h1>";
     echo "<table>";
     $counter = 0;
     $project = $_GET['project'];
@@ -117,7 +118,8 @@ if($logged && isset($_GET['project'])){
         echo "<div class='nothing'>
             <img src='bird.png'>
         <h1 style='color:black'>Nothing to see here...</h1>
-    </div>";
+    </div>
+    <script>document.getElementById('title').style.display='none';</script>";
     } 
     echo "</tr>";
 

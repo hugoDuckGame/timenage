@@ -142,14 +142,14 @@ if($logged){
                 if ($testTheme !== null) {
                     echo ""; // Ferme le div précédent du thème
                 }
-                echo "<br><a href='project.php?project={$t_id}'><h3>{$theme}</h3></a>"; // Ouvre le div pour le thème
+                echo "<br><a href='project.php?project={$t_id}&title=" . urlencode($theme) . "'><h3>{$theme}</h3></a>"; // Ouvre le div pour le thème
                 $testTheme = $theme;
                 $counter++;
             }
 
             // Affichage du chapitre
             if($chapter != ""){ // Affiche le chapitre s'il existe
-                echo "<br><a href='project.php?project={$c_id}'><h4>{$chapter}</h4></a>"; // Ouvre le div pour le chapitre
+                echo "<br><a href='project.php?project={$c_id}&title=" . urlencode($theme) . "'><h4>{$chapter}</h4></a>"; // Ouvre le div pour le chapitre
                 $counter++;
             }
         }
