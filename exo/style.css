@@ -31,3 +31,25 @@
     font-size: 16px; /* Taille de la police pour le texte du placeholder */
     color: #666; /* Couleur du texte du placeholder */
 }
+
+label-name {
+    margin: 6px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
+}
+
+option {
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+select {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

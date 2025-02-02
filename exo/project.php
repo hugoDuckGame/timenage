@@ -6,8 +6,10 @@ ini_set('display_errors', 1); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="functions.js"></script>
+    <script src="newExo.js"></script>
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="popup.css">
     <title>Home - DG Timenage</title>
     <link rel="icon" type="image/x-icon" href="duck-icon.ico">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -121,7 +123,10 @@ if($logged && isset($_GET['project'])){
     </div>
     <script>document.getElementById('title').style.display='none';</script>";
     } 
+    echo "<td><button onclick='exoPopup()'>NEW</button></td>";
     echo "</tr>";
+
+    
 
     echo"<tr>";
 
@@ -151,12 +156,15 @@ if($logged && isset($_GET['project'])){
                     </td>";
                 $ct+=1;
             }
-
+            
             echo "</tr>";
         }
     } else {
         echo "";
     } 
+    echo "<td><button onclick='newSession({$project})'>+</button></td>";
+
+    
 
 
     $conn->close();
@@ -169,10 +177,28 @@ else if ($logged) {
 }
 
 
+
 ?>
+
+<input type="hidden" id="baseUrl" name="baseUrl" value="">
 
 <script>
 
 getEvents(<?php echo $_GET['project']; ?>);
 </script>
 </table>
+
+<div class="form-popup" id="popup">
+    <div class="close">
+        <button type="button" class="btn cancel" onclick="closePopup()">X</button>
+    </div>
+    <h1 style="color:black">New Exo</h1>
+    <label for="name"><b>Name/Number/Page</b></label>
+    <input type="text" placeholder="Enter a value" name="nameBox" required id="nameBox">
+    <button type="button" class="btn" onclick="newExo(<?php echo $project; ?>)">Create</button>
+</div>
+
+
+<?php if(isset($_GET['reload']) && $_GET['reload'] == 'true') {
+    echo "<script>exoPopup();</script>";
+}

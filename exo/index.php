@@ -47,13 +47,14 @@ if (isset($_COOKIE['sessionID'])) {
     }
 
     //First request to retrieve user info
-    $sql = "SELECT `f_name`, `name` FROM `users` WHERE id='" . $_COOKIE['sessionID'] . "'";
+    $sql = "SELECT `f_name`, `name`, `id`  FROM `users` WHERE id='" . $_COOKIE['sessionID'] . "'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo "<div class'homeInfo'><h1>Your Projects</h1><br><h2>Logged in as " . $row['f_name'] . " " . $row['name'] . ".</h2> </div>";
+            $userid = $row['id'];
         }
         } else {
             echo "Error 6001 : Unable to log in, please try again";
@@ -103,6 +104,7 @@ if($logged){
             proj a ON a.chapter = c.unicid AND a.type = 4 -- Autres liés au chapitre
         WHERE 
             m.type = 1 -- Sélectionne les matières
+            AND m.user = {$userid}
         ORDER BY 
             m.Value,      -- Trie les matières par nom
             t.Value,      -- Trie les thèmes par nom
@@ -162,4 +164,6 @@ if($logged){
     $conn->close();
 }
 ?>
+</div>
+<div class="card"><a href="create.php"><h3>New Project</h3></a></div>
 </body>
