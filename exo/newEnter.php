@@ -30,6 +30,9 @@ else {
 if($logged){
     $event = $_GET['event'];
 
+    $conn = new mysqli($exosv, $exous, $exopw, $exodb);
+    $conn->set_charset("utf8mb4");
+
     if($event == "proj") {
         $value = $_GET['value'];
         $type = $_GET['type'];
@@ -48,8 +51,7 @@ if($logged){
         $project = $_GET['project'];
         $sql = "SELECT MAX(`number`) AS max_num FROM sessions WHERE user = {$userid} AND `project` = {$project}";
 
-        $conn = new mysqli($exosv, $exous, $exopw, $exodb);
-        $conn->set_charset("utf8mb4");
+        
 
         
         $result = $conn->query($sql);
