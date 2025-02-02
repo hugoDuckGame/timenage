@@ -36,6 +36,7 @@ if($logged){
         $subject = $_GET['subject'];
         $theme = $_GET['theme'];
         $chapter = $_GET['chapter'];
+        $value = $conn->real_escape_string($value);
         $sql = "INSERT INTO `proj` (`value`, `type`, `subject`, `theme`, `chapter`, `user`) VALUES ('{$value}', '{$type}', NULLIF('{$subject}',''), NULLIF('{$theme}',''), NULLIF('{$chapter}',''), '{$userid}')";
     }
     if($event == "exo") {
