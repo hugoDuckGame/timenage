@@ -111,7 +111,7 @@ if($logged && isset($_GET['project'])){
         // output data of each row
         while($row = $result->fetch_assoc()) {
             $exos[] = $row['id'];
-            echo"<td>
+            echo"<td class='exoname'>
             {$row['name']}
             </td>";
             $counter+=1;
@@ -139,7 +139,7 @@ if($logged && isset($_GET['project'])){
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo"<tr>
-            <td class='exoname'>{$row['number']}</td>";
+            <td>{$row['number']}</td>";
 
             $ct=0;
             
