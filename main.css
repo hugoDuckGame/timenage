@@ -4,9 +4,8 @@ table, th, td {
   }
 
 td {
-    overflow: hidden;
-    width: 50px;
-    height: 20px;
+    width: 60px;
+    height: 35px;
     display: inline-block;
     white-space: nowrap;
 }
