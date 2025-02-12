@@ -139,7 +139,7 @@ if($logged && isset($_GET['project'])){
         // output data of each row
         while($row = $result->fetch_assoc()) {
             echo"<tr>
-            <td>{$row['number']}</td>";
+            <td class='exoname'>{$row['number']}</td>";
 
             $ct=0;
             

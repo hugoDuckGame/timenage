@@ -3,7 +3,7 @@ table, th, td {
     background-color: aliceblue;
   }
 
-td {
+.exoname {
     width: 60px;
     height: 35px;
     display: inline-block;
